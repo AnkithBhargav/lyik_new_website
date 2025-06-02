@@ -1,0 +1,78 @@
+name: Build and Deploy Blue Production
+on:
+  release:
+    types: [created]
+
+env:
+  IMAGE_REPO: lyik-website
+  ENV: dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Release Tag
+        id: check_release
+        run: |
+          echo "RELEASE_TAG=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
+
+      - name: Check Release Tag Format
+        id: check_release_format
+        run: |
+          if [[ ${{ env.RELEASE_TAG }} =~ ^[0-9]+\.[0-9]+\.[0-9]+-blue$ ]]; then
+            echo "::set-output name=is_valid::true"
+          else
+            echo "::set-output name=is_valid::false"
+            echo "Invalid release tag format. Tags should match the pattern [0-9]+\.[0-9]+\.[0-9]+-blue"
+          fi
+
+      - name: Checkout code
+        if: steps.check_release_format.outputs.is_valid == 'true'
+        uses: actions/checkout@v3
+
+      - name: Set Tag
+        if: steps.check_release_format.outputs.is_valid == 'true'
+        id: get_tag
+        run: |
+          TAG=$(echo "${{ github.ref }}" | sed -e 's/refs\/tags\///')
+          echo "TAG=$TAG" >> $GITHUB_ENV
+
+      - uses: azure/docker-login@v1
+        if: steps.check_release_format.outputs.is_valid == 'true'
+        with:
+          login-server: ${{ vars.BLUE_PROD_ACR_LOGIN_SERVER }}
+          username: ${{ vars.BLUE_PROD_ACR_USERNAME }}
+          password: ${{ vars.BLUE_PROD_ACR_PASSWORD }}
+
+      - name: Build and Push Docker image
+        if: steps.check_release_format.outputs.is_valid == 'true'
+        run: |
+          docker build -t ${{ vars.BLUE_PROD_ACR_LOGIN_SERVER }}/${{ env.IMAGE_REPO }}:${{ env.TAG }}  .
+          docker push ${{ vars.BLUE_PROD_ACR_LOGIN_SERVER }}/${{ env.IMAGE_REPO }}:${{ env.TAG }}
+
+      - uses: Azure/aks-set-context@v1
+        if: steps.check_release_format.outputs.is_valid == 'true'
+        with:
+          creds: "${{ vars.BLUE_PROD_AZURE_CREDENTIALS }}"
+          cluster-name: "${{ vars.BLUE_PROD_K8S_CLUSTER_NAME }}"
+          resource-group: "${{ vars.BLUE_PROD_K8S_RESOURCE_GROUP }}"
+
+      - uses: Azure/k8s-create-secret@v1
+        if: steps.check_release_format.outputs.is_valid == 'true'
+        with:
+          container-registry-url: ${{ vars.BLUE_PROD_ACR_LOGIN_SERVER }}
+          container-registry-username: ${{ vars.BLUE_PROD_ACR_USERNAME }}
+          container-registry-password: ${{ vars.BLUE_PROD_ACR_PASSWORD }}
+          secret-name: k8s-secret
+
+      - uses: Azure/k8s-deploy@v4
+        if: steps.check_release_format.outputs.is_valid == 'true'
+        with:
+          action: deploy
+          manifests: |
+            devops/lyik-website-prod-blue.yaml
+          images: |
+            ${{ vars.BLUE_PROD_ACR_LOGIN_SERVER }}/${{ env.IMAGE_REPO }}:${{ env.TAG }}
+          imagepullsecrets: |
+            k8s-secret
