@@ -153,24 +153,25 @@ const cards = [
       {
         title: "Omni-Channel Deployment",
         description: [
-          "Empower customers to switch between web, mobile, and branch channels to start and resume their digital journey effortlessly.",
+          "Start and resume digital journeys seamlessly across web, mobile, and branch channels—switch anytime."
         ],
       },
       {
         title: "End-to-End Journeys",
         description: [
-          "Smart Workflows with Trusted API’s, Business Rules Engine (BRE), KYC Integrations and Backend Integration",
+          "Smart workflows with trusted APIs, business rules engine, KYC, and backend integrations for a unified experience."
         ],
       },
       {
         title: "Enterprise Platform",
-        description: ["All Digital Journeys on a Single Unified Platform"],
+        description: [
+          "Manage all digital journeys within a single, unified enterprise platform."
+        ],
       },
       {
         title: "Rapid Journey Deployments",
         description: [
-          "Reduce Digital Journey implementation time by up to ",
-          "75%",
+          "Accelerate digital journey implementation—reduce deployment time by up to 75%."
         ],
       },
     ],
@@ -182,29 +183,26 @@ const cards = [
     data: [
       {
         title: "Omni-Channel Form Builder",
-        description: ["Convert all Products/Forms into Smart Forms in minutes"],
+        description: [
+          "Quickly convert products and forms into smart, digital forms in minutes."
+        ],
       },
       {
         title: "Dynamic Form Updation",
         description: [
-          "Dynamically update single or multiple forms without disturbing the runtime infrastructure",
+          "Update single or multiple forms instantly—no impact on live infrastructure."
         ],
       },
       {
         title: "Intelligent Forms",
         description: [
-          "Dynamic, context-aware forms that tailor themselves in realtime to provide ",
-          "Personalised Journeys",
+          "Context-aware forms adapt in real time to user input, enabling personalised journeys."
         ],
       },
       {
         title: "Automated PDF Generation",
         description: [
-          "Pre-filled PDF forms auto-generated for ",
-          "Operations ",
-          ", and ",
-          "Audit Trails",
-          ".",
+          "Auto-generate pre-filled PDF forms for operations and audit trails."
         ],
       },
     ],
@@ -218,25 +216,25 @@ const cards = [
       {
         title: "FormCentre Journeys",
         description: [
-          "DIY Digital Journeys initiated from the FormCentre on the Web & App",
+          "DIY digital journeys initiated from FormCentre on web and app."
         ],
       },
       {
         title: "QR Code Journeys",
-        description: ["Paperless Branches (STP Journeys)"],
+        description: [
+          "Enable paperless branches and straight-through processing (STP) journeys."
+        ],
       },
       {
         title: "Trusted APIs & KYC Integration",
         description: [
-          "Automated Form-Filling with pre-validated data, also leveraging AI/OCR technologies",
-          { bold: "" },
-          ".",
+          "Automate form-filling with pre-validated data and AI/OCR technologies."
         ],
       },
       {
         title: "Omni-Channel Journeys",
         description: [
-          "Empower customers to switch between web, mobile, and branch channels to start and resume their digital journey effortlessly.",
+          "Switch between web, mobile, and branch channels—resume journeys anytime."
         ],
       },
     ],
