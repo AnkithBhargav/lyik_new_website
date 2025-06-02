@@ -124,7 +124,7 @@ const OnboardingForm = () => {
     <>
       <Box
         sx={{
-          minHeight: { xs: "80vh", md: "calc(85vh - 64px)" },
+          minHeight: { xs: "70vh", md: "calc(75vh - 64px)" },
           width: "100%",
           backgroundImage: `url('/images/Onboarding page.webp')`,
           backgroundSize: "cover",
@@ -184,7 +184,7 @@ const OnboardingForm = () => {
                 mb: { xs: 1, sm: 2 },
               }}
             >
-              With LYIK Platform, you do more than just deploying a Platform –
+              With LYIK Platform, you do more than just deploying a Platform -
               you are Boosting your Business with unmatched speed of Digital Journeys.
             </Typography>
           </Box>
