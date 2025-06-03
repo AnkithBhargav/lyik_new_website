@@ -450,7 +450,7 @@ const BankFinancesServices = () => {
                     p: { xs: 2, sm: 3 },
                     maxWidth: { xs: "90%", sm: "278px" },
                     textAlign: "center",
-                    height: { xs: 200, sm: 320, md: 380 },
+                    height: { xs: 200, sm: 320, md: 400 },
                     display: "flex",
                     flexDirection: "column",
                     gap: 2,

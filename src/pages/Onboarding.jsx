@@ -147,7 +147,7 @@ const steps = [
 const cards = [
   {
     title: "End-to-End Journeys",
-    imgPath: "card111.png",
+    imgPath: "OnBoarding1.webp",
     imgPath2: "1.png",
     data: [
       {
@@ -178,7 +178,7 @@ const cards = [
   },
   {
     title: "Smart Forms",
-    imgPath: "card123.png",
+    imgPath: "OnBoarding2.webp",
     imgPath2: "2.png",
     data: [
       {
@@ -210,7 +210,7 @@ const cards = [
 
   {
     title: "Superb Customer Experience",
-    imgPath: "card333.png",
+    imgPath: "OnBoarding3.webp",
     imgPath2: "3.png",
     data: [
       {
@@ -452,7 +452,7 @@ const Onboarding = () => {
                       p: { xs: 2, sm: 3 },
                       maxWidth: { xs: "90%", sm: "278px" },
                       textAlign: "center",
-                      height: { xs: 270, sm: 370, md: 350 }, // Increased heights for more text space
+                      height: { xs: 270, sm: 370, md: 370 }, // Increased heights for more text space
                       display: "flex",
                       flexDirection: "column",
                       gap: 2,
