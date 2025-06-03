@@ -452,7 +452,7 @@ const Onboarding = () => {
                       p: { xs: 2, sm: 3 },
                       maxWidth: { xs: "90%", sm: "278px" },
                       textAlign: "center",
-                      height: { xs: 200, sm: 320, md: 280 },
+                      height: { xs: 270, sm: 370, md: 350 }, // Increased heights for more text space
                       display: "flex",
                       flexDirection: "column",
                       gap: 2,
