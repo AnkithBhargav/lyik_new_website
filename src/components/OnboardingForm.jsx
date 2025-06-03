@@ -142,7 +142,7 @@ const OnboardingForm = () => {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "flex-start", // changed from space-between to flex-start
+            justifyContent: "flex-start",
             transform: "scaleX(-1)",
             px: { xs: 2, sm: 4, md: 6 },
             pt: { xs: 1, sm: 0 },
@@ -171,7 +171,7 @@ const OnboardingForm = () => {
               alignItems: "flex-start",
               gap: { xs: 2, sm: 2, md: 8 },
               pt: { xs: 1, sm: 4, md: 6 },
-              mt: 0, // ensure no margin-top
+              mt: 0,
             }}
           >
             <Typography
@@ -244,6 +244,13 @@ const OnboardingForm = () => {
                           color: "#A2A2A2",
                           fontSize: { xs: "14px", md: "16px" },
                         },
+                        transition: "border-color 0.2s",
+                        "&:hover": {
+                          borderColor: "#fff",
+                        },
+                        "&:focus": {
+                          borderColor: "#fff",
+                        },
                       },
                     }}
                   />
@@ -275,6 +282,13 @@ const OnboardingForm = () => {
                           color: "#A2A2A2",
                           fontSize: { xs: "14px", md: "16px" },
                         },
+                        transition: "border-color 0.2s",
+                        "&:hover": {
+                          borderColor: "#fff",
+                        },
+                        "&:focus": {
+                          borderColor: "#fff",
+                        },
                       },
                     }}
                   />
@@ -299,6 +313,12 @@ const OnboardingForm = () => {
                     borderRadius: 10,
                     px: { xs: 2, sm: 4 },
                     py: 1,
+                    transition: "background 0.2s, color 0.2s, box-shadow 0.2s",
+                    "&:hover": {
+                      backgroundColor: "primary.light",
+                      color: "white",
+                      boxShadow: 4,
+                    },
                   }}
                 >
                   <Typography
@@ -314,18 +334,25 @@ const OnboardingForm = () => {
                 </Button>
 
                 <Button
-                  variant="outlined"
+                  variant="contained"
                   onClick={handleContactUs}
                   sx={{
                     mt: 3,
+                    backgroundColor: "white",
                     color: "primary.main",
-                    border: "none",
-                    textDecoration: "underline",
-                    px: 1,
+                    borderRadius: 10,
+                    px: 3,
+                    py: 1,
+                    boxShadow: 1,
+                    transition: "background 0.2s, color 0.2s, box-shadow 0.2s",
+                    "&:hover": {
+                      backgroundColor: "primary.light",
+                      color: "white",
+                      boxShadow: 4,
+                    },
                   }}
                 >
-                  <Typography sx={{ fontWeight: 600 }}>Contact Us</Typography>
-                  <KeyboardArrowRight />
+                  Contact Us
                 </Button>
               </Box>
             </Box>
