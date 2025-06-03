@@ -124,7 +124,7 @@ const OnboardingForm = () => {
     <>
       <Box
         sx={{
-          minHeight: { xs: "70vh", md: "calc(75vh - 64px)" },
+          minHeight: { xs: "80vh", md: "calc(85vh - 64px)" }, 
           width: "100%",
           backgroundImage: `url('/images/Onboarding page.webp')`,
           backgroundSize: "cover",
@@ -142,7 +142,7 @@ const OnboardingForm = () => {
             height: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-between",
+            justifyContent: "flex-start", // changed from space-between to flex-start
             transform: "scaleX(-1)",
             px: { xs: 2, sm: 4, md: 6 },
             pt: { xs: 1, sm: 0 },
@@ -171,11 +171,12 @@ const OnboardingForm = () => {
               alignItems: "flex-start",
               gap: { xs: 2, sm: 2, md: 8 },
               pt: { xs: 1, sm: 4, md: 6 },
+              mt: 0, // ensure no margin-top
             }}
           >
             <Typography
               color="white"
-              fontSize={{ xs: "15px", sm: "19px", md: "22px", lg: "24px" }}
+              fontSize={{ xs: "13px", sm: "16px", md: "18px", lg: "20px" }}
               fontWeight={600}
               textAlign="left"
               lineHeight={1.7}
